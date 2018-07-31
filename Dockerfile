@@ -17,11 +17,11 @@ RUN yum update -y \
 	#Uninstall unecessary package
 	&& yum -y remove wget \
 	&& yum clean all \
-	&& yum autoremove -y \
+	&& yum autoremove -y
 
-	&& cd kafka_2.11-2.0.0 \
+WORKDIR kafka_2.11-2.0.0
 ADD entrypoint.sh entrypoint.sh
-	&& chmod +x entrypoint.sh
+RUN	chmod +x entrypoint.sh
 
 
 EXPOSE 2181 9092
