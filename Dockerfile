@@ -19,8 +19,9 @@ RUN yum update -y \
 	&& yum clean all \
 	&& yum autoremove -y
 
-WORKDIR kafka_2.11-2.0.0
-	ADD entrypoint.sh entrypoint.sh
+	&& cd kafka_2.11-2.0.0 \
+ADD entrypoint.sh entrypoint.sh
+	&& chmod +x entrypoint.sh
 
 
 EXPOSE 2181 9092
