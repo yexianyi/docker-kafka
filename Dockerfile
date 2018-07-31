@@ -17,8 +17,11 @@ RUN yum update -y \
 	#Uninstall unecessary package
 	&& yum -y remove wget \
 	&& yum clean all \
-	&& yum autoremove -y \
-WORKDIR /home/kafka_2.11-2.0.0
+	&& yum autoremove -y
+
+WORKDIR kafka_2.11-2.0.0
+	ADD entrypoint.sh entrypoint.sh
+
 
 EXPOSE 2181 9092
-CMD bin/zookeeper-server-start.sh config/zookeeper.properties && bin/kafka-server-start.sh config/server.properties
+ENTRYPOINT ["./entrypoint.sh"]
