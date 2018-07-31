@@ -21,7 +21,7 @@ RUN yum update -y \
 
 WORKDIR kafka_2.11-2.0.0
 ADD entrypoint.sh entrypoint.sh
-RUN	chmod +x entrypoint.sh
+#RUN	chmod +x entrypoint.sh
 
 
 EXPOSE 2181 9092
