@@ -2,7 +2,7 @@
 ## For standalone:<br>
 docker run -it -p9092:9092 -p2181:2181 -d yexianyi/kafka <br>
 or <br>
-docker run -it -p9092:9092 -P -d yexianyi/kafka <br>
+docker run -it -P -d yexianyi/kafka <br>
 
 ## Useful Commands:<br>
 
