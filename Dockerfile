@@ -22,6 +22,7 @@ RUN yum update -y \
 WORKDIR kafka_2.11-2.0.0
 ADD entrypoint.sh entrypoint.sh
 RUN	chmod 777 entrypoint.sh
+	&& sed -i "s/#advertised.listeners=PLAINTEXT:\/\/your.host.name:9092/advertised.listeners=PLAINTEXT:\/\/localhost:9092/" config/server.properties
 
 
 EXPOSE 2181 9092
