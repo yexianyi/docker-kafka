@@ -7,7 +7,7 @@ MAINTAINER Xianyi Ye <https://cn.linkedin.com/in/yexianyi>
 
 WORKDIR /home
 
-RUN yum update -y \
+RUN 	yum update -y \
 	
 	# Download and unzip Kafka
 	&& wget $KAFKA_DOWNLOAD_LINK \
@@ -20,10 +20,8 @@ RUN yum update -y \
 	&& yum autoremove -y
 
 WORKDIR kafka_2.11-2.0.0
-ADD entrypoint.sh entrypoint.sh
+ADD 	entrypoint.sh entrypoint.sh
 RUN	chmod 777 entrypoint.sh
-	&& sed -i "s/#advertised.listeners=PLAINTEXT:\/\/your.host.name:9092/advertised.listeners=PLAINTEXT:\/\/localhost:9092/" config/server.properties
-
 
 EXPOSE 2181 9092
 CMD ["sh", "entrypoint.sh"]
