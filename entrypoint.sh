@@ -19,4 +19,4 @@ for((i=0;i<brokers;i++));
         nohup bin/kafka-server-start.sh config/server-$i.properties > kafka-$i.log &
     done
 
-exit 0
+tail -f logs/server.log
